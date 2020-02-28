@@ -1,3 +1,9 @@
+<?php 
+session_start();
+if($_SESSION['uid']){
+    header('locaton:admin/admindash.php');
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,7 +50,11 @@
         else{
             $data=mysqli_fetch_assoc($run);
             $id=$data['id'];
-            echo "id=".$id;
+            
+            $_SESSION['uid']=$id;
+            header('location:admin/admindash.php');
+
+
         }
 
 
