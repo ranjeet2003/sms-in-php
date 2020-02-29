@@ -34,6 +34,10 @@ include('titlehead.php');
         <td><input type="number" name="std" placeholder="Enter standerd" required></td>
     </tr>
     <tr>
+        <th>Image</th>
+        <td><input type="file" name="simg" required></td>
+    </tr>
+    <tr>
         <td colspan="2" align="center"><input type="submit" name="submit" value="Submit"></td>
     </tr>
 </table>
@@ -51,8 +55,12 @@ include('titlehead.php');
         $city=$_POST['city'];
         $pcon=$_POST['pcon'];
         $std=$_POST['std'];
+        $imagename=$_FILES['simg']['name'];
+        $tempname=$_FILES['simg']['tmp_name'];
 
-        $qry="INSERT INTO `student`(`rollno`, `name`, `city`, `pcont`, `standerd`) VALUES ('$rollno','$name','$city','$pcon','$std')";
+        move_uploaded_file($tempname,"../dataimg/$imagename");
+
+        $qry="INSERT INTO `student`(`rollno`, `name`, `city`, `pcont`, `standerd`,`image`) VALUES ('$rollno','$name','$city','$pcon','$std','$imagename')";
         
         $run=mysqli_query($con,$qry);
         if($run==true){
