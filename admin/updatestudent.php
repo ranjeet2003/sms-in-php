@@ -48,12 +48,12 @@ include('titlehead.php');
             {   
                 $count++;
                 ?>
-                 <tr>
+                 <tr align="center">
                   <td><?php echo $count;?></td>
                   <td><img src="../dataimg/<?php echo $data['image']; ?>" style="max-width:100px;"/></td>
                   <td><?php echo $data['name'];?></td>
                   <td><?php echo $data['rollno'];?></td>
-                  <td>Edit</td>
+                  <td><a href="updateform.php?sid=<?php echo $data['id']; ?>">Edit</a></td>
                  </tr>
 
                 <?php
