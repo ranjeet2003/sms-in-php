@@ -1,0 +1,3 @@
+admin panel:-
+user name: admin
+password: admin
